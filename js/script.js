@@ -1,6 +1,6 @@
 // richiamo countdown
-const countdownElemt = document.getElementById('countdown')
-console.log(countdownElemt)
+const countdownElement = document.getElementById('countdown')
+console.log(countdownElement)
 
 // richiamo lista numeri
 const numbersListElement = document.getElementById('numbers-list')
@@ -13,7 +13,6 @@ console.log(buttonElement)
 // richiamo numeri inseriti
 const numbersElement = document.querySelectorAll('input')
 console.log(numbersElement)
-
 // estraggo i numeri inseriti dalla nodelist
 const numbersElementValue = extractValue()
 console.log(numbersElementValue)
@@ -30,4 +29,19 @@ function extractValue() {
 function randomGenerator(num1) {
     num1 = (Math.floor(Math.random() * 50) + 1)
     return num1
+}
+
+
+// funzione per countdown
+let numSecCountdown = 3
+
+const countdown = setInterval(countdownFunction, 1000)
+
+function countdownFunction() {
+    countdownElement.innerText = numSecCountdown
+    if (numSecCountdown <= 0) {
+        clearInterval(countdown)
+        countdownElement.classList.add("d-none")
+    }
+    numSecCountdown--
 }
