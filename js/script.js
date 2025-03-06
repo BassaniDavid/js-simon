@@ -18,11 +18,15 @@ console.log(buttonElement)
 let numbersElement = document.querySelectorAll('input')
 console.log(numbersElement)
 
-// funzione generatore casuale di numeri da 1 a 50
-function randomGenerator(num1) {
-    num1 = (Math.floor(Math.random() * 50) + 1)
-    return num1
-}
+// richiamo risultato
+let result = document.getElementById('message')
+
+// numero secondi countdown
+let numSecCountdown = 10
+
+// applicazione del countdown
+const countdown = setInterval(countdownFunction, 1000)
+
 // assegno 5 numeri casuali al pc
 for (let i = 0; i < 5; i++) {
     const li = document.createElement('li')
@@ -47,25 +51,26 @@ buttonElement.addEventListener('click', () => {
     let numbersUSerElements = extractValue(numbersElement)
     console.log(numbersUSerElements)
 
-    
+    let counterNum= 0
+    let correctNum= []
+
+    for (let i = 0; i <numbersPcElements.length; i++){
+        let correntPcNUm = numbersPcElements[i]
+        for(let i = 0; i <numbersUSerElements.length; i++){
+            if(numbersUSerElements[i] === correntPcNUm){
+                counterNum = counterNum +1
+                correctNum.push(' ' +correntPcNUm)
+            }
+        }
+    }
+    console.log(counterNum)
+    result.innerText=`complimenti! hai imbroccato: ${counterNum} numeri! I numeri che hai indovinato sono: ${correctNum}.`
 }
-
 )
-
-
-
-
-
-
-
-
 
 // FUNZIONI
 
 // funzione per countdown
-let numSecCountdown = 1
-
-const countdown = setInterval(countdownFunction, 1000)
 
 function countdownFunction() {
     countdownElement.innerText = numSecCountdown
@@ -76,6 +81,12 @@ function countdownFunction() {
         formElement.classList.remove("d-none")
     }
     numSecCountdown--
+}
+
+// funzione generatore casuale di numeri da 1 a 50
+function randomGenerator(num1) {
+    num1 = (Math.floor(Math.random() * 50) + 1)
+    return num1
 }
 
 // ESTRAI VALORE UTENTE
