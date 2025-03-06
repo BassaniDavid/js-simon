@@ -6,6 +6,10 @@ console.log(countdownElement)
 const numbersListElement = document.getElementById('numbers-list')
 console.log(numbersListElement)
 
+// richiamo form
+const formElement = document.getElementById('answers-form')
+console.log(formElement)
+
 // richiamo bottone
 const buttonElement = document.querySelector('button')
 console.log(buttonElement)
@@ -33,7 +37,7 @@ function randomGenerator(num1) {
 
 
 // funzione per countdown
-let numSecCountdown = 3
+let numSecCountdown = 2
 
 const countdown = setInterval(countdownFunction, 1000)
 
@@ -42,6 +46,8 @@ function countdownFunction() {
     if (numSecCountdown <= 0) {
         clearInterval(countdown)
         countdownElement.classList.add("d-none")
+        numbersListElement.classList.add("d-none")
+        formElement.classList.remove("d-none")
     }
     numSecCountdown--
 }
