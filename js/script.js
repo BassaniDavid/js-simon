@@ -15,7 +15,7 @@ const numbersElement = document.querySelectorAll('input')
 console.log(numbersElement)
 
 // estraggo i numeri inseriti dalla nodelist
-const numbersElementValue = extractValue ()
+const numbersElementValue = extractValue()
 console.log(numbersElementValue)
 
 function extractValue() {
@@ -24,4 +24,10 @@ function extractValue() {
         result.push(numbersElement[i].value);
     }
     return result
+}
+
+// funzione generatore casuale di numeri da 1 a 50
+function randomGenerator(num1) {
+    num1 = (Math.floor(Math.random() * 50) + 1)
+    return num1
 }
